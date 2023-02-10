@@ -46,7 +46,7 @@ Resources:
         Api:
           Type: Api
           Properties:
-            Path: /{name}
+            Path: /archetypes/{name}
             Method: GET
 
 Outputs:
