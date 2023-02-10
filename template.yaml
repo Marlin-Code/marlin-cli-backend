@@ -6,8 +6,7 @@ Description: This is a serverless-api definition. The lambdas and trigger events
 
 # Transform section specifies one or more macros that AWS CloudFormation uses to process your template
 # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html
-Transform:
-- AWS::Serverless-2016-10-31
+Transform: AWS::Serverless-2016-10-31
 
 # These are imported into each definition in the template
 Globals:
@@ -31,6 +30,18 @@ Resources:
       FunctionName: hello-world
       Handler: src/handlers/helloWorld.helloWorldHandler
       Description: A simple example includes a HTTP get method to return a greeting based on a path param.
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /{name}
+            Method: GET
+  getArchetypeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: get-archetype-function
+      Handler: src/handlers/archetypes.getArchetypeHandler
+      Description: Endpoint for fetching an archetype based on name
       Events:
         Api:
           Type: Api
