@@ -1,0 +1,4 @@
+{
+  "name": "marlin-api",
+  "archetype": "serverless-api"
+}
