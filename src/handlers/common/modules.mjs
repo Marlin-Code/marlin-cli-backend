@@ -6,7 +6,7 @@ export const MODULE_MAP = {
     "repository": {
       "owner": "Marlin-Code",
       "repo_name": "module-pre-launch-splash-page",
-      "version": "1.0.0"
+      "version": "0.0.1"
     }
   }
 }
