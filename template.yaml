@@ -24,18 +24,6 @@ Resources:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 
   # This is a Lambda function config associated with the source code: helloWorld.mjs
-  helloWorldFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: hello-world
-      Handler: src/handlers/helloWorld.helloWorldHandler
-      Description: A simple example includes a HTTP get method to return a greeting based on a path param.
-      Events:
-        Api:
-          Type: Api
-          Properties:
-            Path: /{name}
-            Method: GET
   getArchetypeFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -47,6 +35,42 @@ Resources:
           Type: Api
           Properties:
             Path: /archetypes/{name}
+            Method: GET
+  listArchetypesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: list-archetyes-function
+      Handler: src/handlers/archetypes.listArchetypesHandler
+      Description: Endpoint for fetching the available archetypes 
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /archetypes/available
+            Method: GET
+  getModuleFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: get-module-function
+      Handler: src/handlers/modules.getModuleHandler
+      Description: Endpoint for fetching an module based on name
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /modules/{name}
+            Method: GET
+  listModulesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: list-modules-function
+      Handler: src/handlers/modules.listModulesHandler
+      Description: Endpoint for fetching the available modules 
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /modules/available
             Method: GET
 
 Outputs:
