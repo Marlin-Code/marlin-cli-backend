@@ -7,7 +7,8 @@ export const ARCHETYPE_MAP = {
       "owner": "Marlin-Code",
       "repo_name": "react_frontend_module",
       "version": "1.0.0"
-    }
+    }, 
+    "package_manager": "npm",
   },
   "serverless-api": {
     "creator": "Marlin",
@@ -17,6 +18,7 @@ export const ARCHETYPE_MAP = {
       "owner": "Marlin-Code",
       "repo_name": "serverless-api",
       "version": "1.0.0"
-    }
+    },
+    "package_manager": "npm",
   }
 }
