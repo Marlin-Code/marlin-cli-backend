@@ -1,35 +1,13 @@
 import Airtable from "airtable";
-import {
-  SecretsManagerClient,
-  GetSecretValueCommand,
-} from "@aws-sdk/client-secrets-manager";
+import { getSecret } from "./SecretManager.mjs";
 import { AIRTABLE_BASE } from "../constants.mjs";
 
-const secret_name = "AIRTABLE_API_KEY";
-
-const client = new SecretsManagerClient({
-  region: "us-east-1",
-});
-
-let response;
-
-try {
-  response = await client.send(
-    new GetSecretValueCommand({
-      SecretId: secret_name
-    })
-  );
-} catch (error) {
-  throw error;
-}
-
-const airtableSecret = response.SecretString;
-
+const airtableSecret = await getSecret("AIRTABLE_API_KEY");
+const nameField = "Name";
 Airtable.configure({
   apiKey: airtableSecret
 })
 const base = Airtable.base(AIRTABLE_BASE);
-const nameField = "Name";
 
 export function getRecordByName(table, name) {
   return new Promise((resolve, reject) => {
