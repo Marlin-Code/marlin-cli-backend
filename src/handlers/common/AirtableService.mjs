@@ -3,6 +3,7 @@ import {
   SecretsManagerClient,
   GetSecretValueCommand,
 } from "@aws-sdk/client-secrets-manager";
+import { AIRTABLE_BASE } from "../constants.mjs";
 
 const secret_name = "AIRTABLE_API_KEY";
 
@@ -27,7 +28,7 @@ const airtableSecret = response.SecretString;
 Airtable.configure({
   apiKey: airtableSecret
 })
-const base = Airtable.base("appScccTPpXaIUW7n");
+const base = Airtable.base(AIRTABLE_BASE);
 const nameField = "Name";
 
 export function getRecordByName(table, name) {
