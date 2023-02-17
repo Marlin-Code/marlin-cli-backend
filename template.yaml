@@ -30,6 +30,9 @@ Resources:
       FunctionName: get-archetype-function
       Handler: src/handlers/archetypes.getArchetypeHandler
       Description: Endpoint for fetching an archetype based on name
+      Policies:
+        - AWSSecretsManagerGetSecretValuePolicy:
+            SecretArn: 'arn:aws:secretsmanager:us-east-1:605725488159:secret:AIRTABLE_API_KEY-RJo4kq'
       Events:
         Api:
           Type: Api
@@ -41,7 +44,10 @@ Resources:
     Properties:
       FunctionName: list-archetyes-function
       Handler: src/handlers/archetypes.listArchetypesHandler
-      Description: Endpoint for fetching the available archetypes 
+      Description: Endpoint for fetching the available archetypes
+      Policies:
+        - AWSSecretsManagerGetSecretValuePolicy:
+            SecretArn: 'arn:aws:secretsmanager:us-east-1:605725488159:secret:AIRTABLE_API_KEY-RJo4kq'
       Events:
         Api:
           Type: Api
@@ -54,6 +60,9 @@ Resources:
       FunctionName: get-module-function
       Handler: src/handlers/modules.getModuleHandler
       Description: Endpoint for fetching an module based on name
+      Policies:
+        - AWSSecretsManagerGetSecretValuePolicy:
+            SecretArn: 'arn:aws:secretsmanager:us-east-1:605725488159:secret:AIRTABLE_API_KEY-RJo4kq'
       Events:
         Api:
           Type: Api
@@ -66,6 +75,9 @@ Resources:
       FunctionName: list-modules-function
       Handler: src/handlers/modules.listModulesHandler
       Description: Endpoint for fetching the available modules 
+      Policies:
+        - AWSSecretsManagerGetSecretValuePolicy:
+            SecretArn: 'arn:aws:secretsmanager:us-east-1:605725488159:secret:AIRTABLE_API_KEY-RJo4kq'
       Events:
         Api:
           Type: Api

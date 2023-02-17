@@ -1,24 +1,27 @@
-import { MODULE_MAP } from './common/modules.mjs'
+import { getAllRecordNames, getRecordByName } from './common/AirtableService.mjs';
+import { MODULE_TABLE } from './constants.mjs';
 
 export const getModuleHandler = async (event) => {
   const name = event.pathParameters.name;
-
-  if (name in MODULE_MAP) {
-    return {
-      statusCode: 200,
-      body: JSON.stringify(MODULE_MAP[name])
-    };
-  } else {
+  return getRecordByName(MODULE_TABLE, name).then(
+    (module) => {
+      return {
+        statusCode: 200,
+        body: JSON.stringify(module)
+      };
+    }
+  ).catch(_ => {
     return {
       statusCode: 404,
-      body: {},
+      body: "Not Found"
     };
-  }
+  });
 }
 
 export const listModulesHandler = async (event) => {
+  const modules = await getAllRecordNames(MODULE_TABLE);
   return {
     statusCode: 200,
-    body: JSON.stringify(Object.keys(MODULE_MAP))
+    body: JSON.stringify(modules)
   };
 } 
