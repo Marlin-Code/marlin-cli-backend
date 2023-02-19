@@ -2,12 +2,12 @@
     "name": "serverless-api-functions",
     "description": "Serverless functions backing the marlin web app",
     "version": "0.0.1",
+    "type": "module",
     "private": true,
     "scripts": {
         "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
         "lint": "eslint --fix",
-        "pretty": "prettier --write .",
-        "prepare": "husky install"
+        "pretty": "prettier --write ."
     },
     "jest": {
         "testMatch": [

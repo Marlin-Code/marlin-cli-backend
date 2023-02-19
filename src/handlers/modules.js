@@ -1,4 +1,4 @@
-import { MODULE_MAP } from './common/modules.mjs'
+import MODULE_MAP from './common/modules.js';
 
 export const getModuleHandler = async (event) => {
   const name = event.pathParameters.name;
@@ -6,7 +6,7 @@ export const getModuleHandler = async (event) => {
   if (name in MODULE_MAP) {
     return {
       statusCode: 200,
-      body: JSON.stringify(MODULE_MAP[name])
+      body: JSON.stringify(MODULE_MAP[name]),
     };
   } else {
     return {
@@ -14,11 +14,11 @@ export const getModuleHandler = async (event) => {
       body: {},
     };
   }
-}
+};
 
-export const listModulesHandler = async (event) => {
+export const listModulesHandler = async () => {
   return {
     statusCode: 200,
-    body: JSON.stringify(Object.keys(MODULE_MAP))
+    body: JSON.stringify(Object.keys(MODULE_MAP)),
   };
-} 
+};

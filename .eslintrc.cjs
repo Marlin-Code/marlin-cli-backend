@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: 'airbnb-base',
+  extends: ['eslint:recommended'],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -14,6 +14,6 @@ module.exports = {
     semi: 0,
     'comma-dangle': 0,
     'prettier/prettier': 'error',
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-filename-extension': [1, { extensions: ['mjs', '.js', '.jsx'] }],
   },
 };
