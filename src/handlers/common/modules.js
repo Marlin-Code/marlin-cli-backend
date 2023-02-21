@@ -7,7 +7,7 @@ export default {
     repository: {
       owner: 'Marlin-Code',
       repo_name: 'module-pre-launch-splash-page',
-      version: '0.0.1',
+      version: '0.0.2',
     },
   },
   header: {
