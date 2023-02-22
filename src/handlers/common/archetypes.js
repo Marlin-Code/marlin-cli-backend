@@ -7,7 +7,7 @@ export default {
     repository: {
       owner: 'Marlin-Code',
       repo_name: 'archetype-react-js',
-      version: '0.0.1',
+      version: '0.0.2',
     },
     package_manager: 'npm',
   },
