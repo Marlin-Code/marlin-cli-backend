@@ -40,7 +40,7 @@ export default {
     repository: {
       owner: 'Marlin-Code',
       repo_name: 'module-auth0-fe',
-      version: '0.0.2',
+      version: '0.0.3',
     },
   },
 };
